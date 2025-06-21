@@ -24,6 +24,7 @@ using Rainbow.ImgLib.Common;
 using Rainbow.ImgLib.Encoding;
 using Rainbow.ImgLib.Filters;
 using Rainbow.ImgLib.Encoding.Implementation;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Formats.Implementation
 {
@@ -50,9 +51,9 @@ namespace Rainbow.ImgLib.Formats.Implementation
             get { return "NUTTexture"; }
         }
 
-        protected override ByteOrder GetByteOrder()
+        protected override Endianess GetByteOrder()
         {
-            return ByteOrder.BigEndian;
+            return Endianess.BigEndian;
         }
 
         protected override bool IsSupportedVersion(ushort version)
@@ -116,7 +117,7 @@ namespace Rainbow.ImgLib.Formats.Implementation
                     throw new TextureFormatException("Unsupported clut format " + clutFormat);
             }
 
-            indexCodec = IndexCodec.FromBitPerPixel(bpp, ByteOrder.BigEndian);
+            indexCodec = IndexCodec.FromBitPerPixel(bpp, Endianess.BigEndian);
             imgFilter = new TileFilter(bpp, 8, 32 / bpp, width, height);
             palFilter = null;
         }

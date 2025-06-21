@@ -1,4 +1,4 @@
-﻿using NUC_Raw_Tools;
+﻿using CFC_Digest_Editor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.Design;
 using System.Windows.Forms;
-using static NUC_Raw_Tools.ArquivoRAW.RAW;
 
-namespace CFC_Digest_Editor.classes
+namespace CFC_Digest_Editor.Racjin.Assets.Text
 {
     //TEXT
     public class MB0

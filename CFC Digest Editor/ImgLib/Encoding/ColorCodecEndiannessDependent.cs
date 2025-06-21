@@ -20,17 +20,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding
 {
     public abstract class ColorCodecEndiannessDependent : ColorCodec, EndiannessDependent
     {
-        private ByteOrder order;
-        public ColorCodecEndiannessDependent(ByteOrder order)
+        private Endianess order;
+        public ColorCodecEndiannessDependent(Endianess order)
         {
             this.order = order;
         }
 
-        public ByteOrder ByteOrder { get { return order; } }
+        public Endianess ByteOrder { get { return order; } }
     }
 }

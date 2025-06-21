@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Windows.Forms;
 
-namespace NUC_Raw_Tools
+namespace CFC_Digest_Editor.Racjin.Assets.Text
 {
     public class LetraseValores
     {

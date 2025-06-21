@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CFC_Digest_Editor.Classes;
 
 
-namespace CFC_Digest_Editor.classes
+namespace CFC_Digest_Editor.Racjin.Assets
 {
     public class DSI
     {
@@ -16,9 +17,9 @@ namespace CFC_Digest_Editor.classes
 
         public static void ExtractAndMerge(string inputPath, string outputVideoPath, string outputAudioPath)
         {
-             var stream = new FileStream(inputPath, FileMode.Open, FileAccess.Read);
-             var videoOutput = new FileStream(outputVideoPath, FileMode.Create, FileAccess.Write);
-             var audioOutput = new FileStream(outputAudioPath, FileMode.Create, FileAccess.Write);
+            var stream = new FileStream(inputPath, FileMode.Open, FileAccess.Read);
+            var videoOutput = new FileStream(outputVideoPath, FileMode.Create, FileAccess.Write);
+            var audioOutput = new FileStream(outputAudioPath, FileMode.Create, FileAccess.Write);
 
             int folderIndex = 0;
 
@@ -27,12 +28,12 @@ namespace CFC_Digest_Editor.classes
                 byte[] folderData = new byte[FolderSize];
                 stream.Read(folderData, 0, FolderSize);
 
-                 var ms = new MemoryStream(folderData);
-                 var br = new BinaryReader(ms);
+                var ms = new MemoryStream(folderData);
+                var br = new BinaryReader(ms);
 
                 int streamCount = br.ReadInt32();
                 int m2vStartOffset = br.ReadInt32();
-                int block1ID = (int)folderData.ReadUInt(0x08,16); // Desconhecido
+                int block1ID = (int)folderData.ReadUInt(0x08, 16); // Desconhecido
                 br.ReadInt32();
                 int m2vSize = br.ReadInt32();
                 int vagStartOffset = br.ReadInt32();
@@ -61,7 +62,7 @@ namespace CFC_Digest_Editor.classes
             }
             videoOutput.Close();
             audioOutput.Close();
-            MessageBox.Show("Extracted sucessfully!", "Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Windows.Forms.MessageBox.Show("Extracted sucessfully!", Main.maininstance.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //if (MessageBox.Show("Want to convert vag to wav?", "Question",
             //   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -133,8 +134,8 @@ namespace CFC_Digest_Editor.classes
                 output.Dispose();
             }
 
-            MessageBox.Show("DSI rebuild successful!", "Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           
+            System.Windows.Forms.MessageBox.Show("DSI rebuild successful!", "Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private static byte[] ReadBlock(FileStream fs, int maxSize)
@@ -153,8 +154,8 @@ namespace CFC_Digest_Editor.classes
             byte[] adpcm = File.ReadAllBytes(inputPath);
             byte[] pcm = ADPCM.ToPCMStereo(adpcm, adpcm.Length, 16);
 
-            File.WriteAllBytes(outputPath,SaveRiff(pcm, 2, 48000));
-            MessageBox.Show("Converted sucessfully!!", "Action");
+            File.WriteAllBytes(outputPath, SaveRiff(pcm, 2, 48000));
+            System.Windows.Forms.MessageBox.Show("Converted sucessfully!!", "Action");
         }
 
         public static byte[] SaveRiff(byte[] pcm, short channels, int samplerate)
@@ -178,7 +179,5 @@ namespace CFC_Digest_Editor.classes
             writer.Close();
             return data;
         }
-    
-
     }
 }

@@ -21,12 +21,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding.Implementation
 {
     public class ColorCodecI4 : ColorCodecEndiannessDependent
     {
-        public ColorCodecI4(ByteOrder order):
+        public ColorCodecI4(Endianess order):
             base(order) { }
 
         public override Color[] DecodeColors(byte[] colors, int start, int length)
@@ -36,8 +37,8 @@ namespace Rainbow.ImgLib.Encoding.Implementation
             for(int i=0;i<length;i++)
             {
                 byte value=colors[start+i];
-                int first   = ByteOrder == ByteOrder.LittleEndian ? value & 0xF : (value >> 4) & 0xF;
-                int second = ByteOrder == ByteOrder.LittleEndian ? (value >> 4) & 0xF : value & 0xF;
+                int first   = ByteOrder == Endianess.LittleEndian ? value & 0xF : (value >> 4) & 0xF;
+                int second = ByteOrder == Endianess.LittleEndian ? (value >> 4) & 0xF : value & 0xF;
 
                 first = ImageUtils.Conv4To8(first);
                 second = ImageUtils.Conv4To8(second);
@@ -63,7 +64,7 @@ namespace Rainbow.ImgLib.Encoding.Implementation
 
                 byte value = 0;
 
-                if(ByteOrder == ByteOrder.LittleEndian)
+                if(ByteOrder == Endianess.LittleEndian)
                 {
                     value = (byte)((firstNibble & 0xF) | ((secondNibble & 0xF) << 4));
                 }else

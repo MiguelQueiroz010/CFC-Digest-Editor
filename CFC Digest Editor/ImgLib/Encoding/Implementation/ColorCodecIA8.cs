@@ -22,12 +22,13 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding.Implementation
 {
     public class ColorCodecIA8 : ColorCodecEndiannessDependent
     {
-        public ColorCodecIA8(ByteOrder order):
+        public ColorCodecIA8(Endianess order):
             base(order) { }
 
         public override Color[] DecodeColors(byte[] colors, int start, int length)
@@ -54,8 +55,8 @@ namespace Rainbow.ImgLib.Encoding.Implementation
             {
                 Color gray = ImageUtils.ToGrayScale(colors[start + i]);
 
-                encoded[i * 2] = ByteOrder == ByteOrder.LittleEndian ? gray.R : gray.A;
-                encoded[i * 2 + 1] = ByteOrder == ByteOrder.LittleEndian ? gray.A : gray.R;
+                encoded[i * 2] = ByteOrder == Endianess.LittleEndian ? gray.R : gray.A;
+                encoded[i * 2 + 1] = ByteOrder == Endianess.LittleEndian ? gray.A : gray.R;
             }
 
             return encoded;

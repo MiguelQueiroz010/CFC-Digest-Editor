@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Formats.Implementation
 {
@@ -55,7 +56,7 @@ namespace Rainbow.ImgLib.Formats.Implementation
             BinaryReader reader = new BinaryReader(formatData);
             reader.BaseStream.Position += 4;
 
-            ByteOrder order = ByteOrder.BigEndian;
+            Endianess order = Endianess.BigEndian;
 
             int texturesCount = (int)reader.ReadUInt32(order);
             uint imageTableOffset = reader.ReadUInt32(order);

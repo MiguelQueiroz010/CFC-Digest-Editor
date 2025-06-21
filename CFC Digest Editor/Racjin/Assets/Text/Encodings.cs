@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Windows.Forms;
 
-namespace CFC_Digest_Editor.classes
+namespace CFC_Digest_Editor.Racjin.Assets.Text
 {
     public class Encodings
     {
@@ -27,7 +27,7 @@ namespace CFC_Digest_Editor.classes
                     //5780 |% r2
                     //6880 |% r1
                     //6980 |% r2
-                    var llv = new LetraseValores(File.ReadAllText(Main.SelectedEncoding, Encoding.Default));
+                    var llv = new LetraseValores(File.ReadAllText("Encoding.enc", Encoding.Default));
                     var seq = new List<byte>();
                     for(int i =0;i<s.Length;i++)
                     {
@@ -73,7 +73,7 @@ namespace CFC_Digest_Editor.classes
                 
                 public static string GetString(byte[] bytes)
                 {
-                    var llv = new LetraseValores(File.ReadAllText(Main.SelectedEncoding, Encoding.Default));
+                    var llv = new LetraseValores(File.ReadAllText("Encoding.enc", Encoding.Default));
                     string seq = "";
                     for (int i =0;i<bytes.Length;i+=2)
                     {

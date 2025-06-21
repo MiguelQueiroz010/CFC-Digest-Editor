@@ -20,12 +20,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Rainbow.ImgLib.Common
+namespace CFC_Digest_Editor.Classes
 {
-    public enum ByteOrder { LittleEndian, BigEndian }
+    public enum Endianess { LittleEndian, BigEndian }
+    public enum BitOrder { LeastSignificant, MostSignificant }
 
     public interface EndiannessDependent
     {
-        ByteOrder ByteOrder { get; }
+        Endianess ByteOrder { get; }
     }
 }

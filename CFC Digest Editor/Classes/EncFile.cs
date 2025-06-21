@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
-namespace CFC_Digest_Editor.classes
+namespace CFC_Digest_Editor.Classes
 {
     public class LetraseValores
     {

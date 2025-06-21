@@ -27,6 +27,7 @@ using Rainbow.ImgLib.Formats.Serialization.Metadata;
 using Rainbow.ImgLib.Encoding;
 using Rainbow.ImgLib.Encoding.Implementation;
 using Rainbow.ImgLib.Filters;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Formats.Implementation
 {
@@ -40,7 +41,7 @@ namespace Rainbow.ImgLib.Formats.Implementation
                                       DATA_KEY          = "Data",
                                       USERDATA_KEY      = "UserData";
 
-        protected abstract ByteOrder GetByteOrder();
+        protected abstract Endianess GetByteOrder();
 
         protected abstract bool IsSupportedVersion(ushort version);
 
@@ -84,7 +85,7 @@ namespace Rainbow.ImgLib.Formats.Implementation
                 throw new TextureFormatException("Not a valid Texture!");
             }
 
-            ByteOrder order = GetByteOrder();
+            Endianess order = GetByteOrder();
             BinaryReader reader = new BinaryReader(formatData);
             reader.BaseStream.Seek(4, SeekOrigin.Begin);
 
@@ -193,7 +194,7 @@ namespace Rainbow.ImgLib.Formats.Implementation
 
         private TextureFormat ConstructSegment(BinaryReader reader, ushort version)
         {
-            ByteOrder order = GetByteOrder();
+            Endianess order = GetByteOrder();
             uint totalSize = reader.ReadUInt32(order);
             uint paletteSize = reader.ReadUInt32(order);
             uint imageSize = reader.ReadUInt32(order);

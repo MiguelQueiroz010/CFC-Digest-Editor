@@ -10,9 +10,9 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms.Design;
 using System.Windows.Forms;
-using NUC_Raw_Tools.ArquivoRAW;
+using CFC_Digest_Editor.Classes;
 
-namespace CFC_Digest_Editor.classes
+namespace CFC_Digest_Editor.Racjin.Assets
 {
     //2D RECTANGLES TO CUT FROM TEX
 
@@ -29,7 +29,7 @@ namespace CFC_Digest_Editor.classes
         {
             public short Crop_Index;
             public short Crop_Count;
-            public short StartPos_X, StartPos_Y;
+            public short InitialPos_X, InitialPos_Y;
             public short Unk1, Unk2;
 
             [Category("Crop Control")]
@@ -45,12 +45,12 @@ namespace CFC_Digest_Editor.classes
             [Category("Crop Control")]
             [DisplayName("StartPos X")]
             [Description("StartPos X")]
-            public short StartPos_X_CropControl { get => StartPos_X; set => StartPos_X = value; }
+            public short StartPos_X_CropControl { get => InitialPos_X; set => InitialPos_X = value; }
 
             [Category("Crop Control")]
             [DisplayName("StartPos Y")]
             [Description("StartPos Y")]
-            public short StartPos_Y_CropControl { get => StartPos_Y; set => StartPos_Y = value; }
+            public short StartPos_Y_CropControl { get => InitialPos_Y; set => InitialPos_Y = value; }
 
             [Category("Crop Control")]
             [DisplayName("Unk1")]
@@ -67,8 +67,8 @@ namespace CFC_Digest_Editor.classes
                 {
                     Crop_Index = BitConverter.ToInt16(data, 0x00),
                     Crop_Count = BitConverter.ToInt16(data, 0x02),
-                    StartPos_X = BitConverter.ToInt16(data, 0x04),
-                    StartPos_Y = BitConverter.ToInt16(data, 0x06),
+                    InitialPos_X = BitConverter.ToInt16(data, 0x04),
+                    InitialPos_Y = BitConverter.ToInt16(data, 0x06),
                     Unk1 = BitConverter.ToInt16(data, 0x08),
                     Unk2 = BitConverter.ToInt16(data, 0x0A)
                 };
@@ -78,8 +78,8 @@ namespace CFC_Digest_Editor.classes
                 var list = new List<byte>();
                 list.AddRange(BitConverter.GetBytes(Crop_Index));
                 list.AddRange(BitConverter.GetBytes(Crop_Count));
-                list.AddRange(BitConverter.GetBytes(StartPos_X));
-                list.AddRange(BitConverter.GetBytes(StartPos_Y));
+                list.AddRange(BitConverter.GetBytes(InitialPos_X));
+                list.AddRange(BitConverter.GetBytes(InitialPos_Y));
                 list.AddRange(BitConverter.GetBytes(Unk1));
                 list.AddRange(BitConverter.GetBytes(Unk2));
                 return list.ToArray();

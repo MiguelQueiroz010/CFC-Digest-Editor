@@ -23,12 +23,13 @@ using System.Linq;
 using System.Text;
 
 using Rainbow.ImgLib.Common;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding.Implementation
 {
     public class ColorCodecRGB5A3 : ColorCodecEndiannessDependent
     {
-        public ColorCodecRGB5A3(ByteOrder order):
+        public ColorCodecRGB5A3(Endianess order):
             base(order) { }
 
         public override Color[] DecodeColors(byte[] colors, int start, int length)
@@ -96,8 +97,8 @@ namespace Rainbow.ImgLib.Encoding.Implementation
                     color = (ushort)( ((alpha & 0x7) << 12) | ((red & 0xF) << 8) | ((green & 0xF) << 4) | blue & 0xF);
                 }
 
-                encoded[i * 2] = (byte)(ByteOrder == ByteOrder.LittleEndian ? color & 0xFF : (color >> 8) & 0xFF);
-                encoded[i * 2 + 1] = (byte)(ByteOrder == ByteOrder.LittleEndian ? (color >> 8) & 0xFF : color & 0xFF);
+                encoded[i * 2] = (byte)(ByteOrder == Endianess.LittleEndian ? color & 0xFF : (color >> 8) & 0xFF);
+                encoded[i * 2 + 1] = (byte)(ByteOrder == Endianess.LittleEndian ? (color >> 8) & 0xFF : color & 0xFF);
             }
 
             return encoded;

@@ -21,12 +21,13 @@ using System.Linq;
 using System.Text;
 
 using Rainbow.ImgLib.Common;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding.Implementation
 {
     public class IndexCodec4Bpp : IndexCodecEndiannessDependent
     {
-        public IndexCodec4Bpp(ByteOrder order):
+        public IndexCodec4Bpp(Endianess order):
             base(order) { }
 
         public override int GetPixelIndex(byte[] pixelData, int width, int height, int x, int y)
@@ -34,7 +35,7 @@ namespace Rainbow.ImgLib.Encoding.Implementation
             int pos = x + y * width;
             byte b = pixelData[pos / 2];
 
-            if (ByteOrder == ByteOrder.LittleEndian)
+            if (ByteOrder == Endianess.LittleEndian)
             {
                 return pos % 2 == 0 ? b & 0xF : (b >> 4) & 0xF;
             }
@@ -59,7 +60,7 @@ namespace Rainbow.ImgLib.Encoding.Implementation
 
                 }
 
-                if (ByteOrder == ByteOrder.LittleEndian)
+                if (ByteOrder == Endianess.LittleEndian)
                 {
                     packed[k++] = (byte)((indexes[i + 1] << 4) | indexes[i]);
                 }

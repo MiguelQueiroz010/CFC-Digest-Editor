@@ -20,18 +20,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding
 {
     public abstract class IndexCodecEndiannessDependent : IndexCodec, EndiannessDependent
     {
-        private readonly ByteOrder order;
-        public IndexCodecEndiannessDependent(ByteOrder order)
+        private readonly Endianess order;
+        public IndexCodecEndiannessDependent(Endianess order)
         {
             this.order = order;
         }
 
 
-        public ByteOrder ByteOrder { get { return order; } }
+        public Endianess ByteOrder { get { return order; } }
     }
 }

@@ -21,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding.Implementation
 {
@@ -29,7 +30,7 @@ namespace Rainbow.ImgLib.Encoding.Implementation
         private readonly ImageFilter filter;
 
         public ColorCodecDXT1Gamecube(int width, int height) :
-            base(ByteOrder.BigEndian, width, height) 
+            base(Endianess.BigEndian, width, height) 
         {
             filter = new TileFilter(64, 2, 2, FullWidth / 4, FullHeight / 4);
         }
