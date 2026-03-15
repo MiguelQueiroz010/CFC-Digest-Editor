@@ -24,7 +24,6 @@ using System.Text;
 using Rainbow.ImgLib.Common;
 using System.Drawing;
 using Rainbow.ImgLib.Filters;
-using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding.Implementation
 {
@@ -33,7 +32,7 @@ namespace Rainbow.ImgLib.Encoding.Implementation
         private readonly int width, height;
         private static Color[] clut = new Color[4];
 
-        public ColorCodecDXT1(Endianess order, int width, int height):
+        public ColorCodecDXT1(ByteOrder order, int width, int height):
             base(order)
         {
             this.width = width;

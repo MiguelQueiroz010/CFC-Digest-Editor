@@ -20,7 +20,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Common
 {
@@ -29,9 +28,9 @@ namespace Rainbow.ImgLib.Common
     {
         private static byte[] buf = new byte[8];
 
-        public static UInt16 ReadUInt16(this BinaryReader reader, Endianess order)
+        public static UInt16 ReadUInt16(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadUInt16();
             }
@@ -41,9 +40,9 @@ namespace Rainbow.ImgLib.Common
             return BitConverter.ToUInt16(buf, 0);
         }
 
-        public static Int16 ReadInt16(this BinaryReader reader, Endianess order)
+        public static Int16 ReadInt16(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadInt16();
             }
@@ -53,9 +52,9 @@ namespace Rainbow.ImgLib.Common
             return BitConverter.ToInt16(buf, 0);
         }
 
-        public static UInt32 ReadUInt32(this BinaryReader reader, Endianess order)
+        public static UInt32 ReadUInt32(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadUInt32();
             }
@@ -65,9 +64,9 @@ namespace Rainbow.ImgLib.Common
             return BitConverter.ToUInt32(buf, 0);
         }
 
-        public static Int32 ReadInt32(this BinaryReader reader, Endianess order)
+        public static Int32 ReadInt32(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadInt32();
             }
@@ -77,9 +76,9 @@ namespace Rainbow.ImgLib.Common
             return BitConverter.ToInt32(buf, 0);
         }
 
-        public static UInt64 ReadUInt64(this BinaryReader reader, Endianess order)
+        public static UInt64 ReadUInt64(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadUInt64();
             }
@@ -89,9 +88,9 @@ namespace Rainbow.ImgLib.Common
             return BitConverter.ToUInt64(buf, 0);
         }
 
-        public static Int64 ReadInt64(this BinaryReader reader, Endianess order)
+        public static Int64 ReadInt64(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadInt64();
             }
@@ -101,9 +100,9 @@ namespace Rainbow.ImgLib.Common
             return BitConverter.ToInt64(buf, 0);
         }
 
-        public static float ReadSingle(this BinaryReader reader, Endianess order)
+        public static float ReadSingle(this BinaryReader reader, ByteOrder order)
         {
-            if (order == Endianess.LittleEndian)
+            if (order == ByteOrder.LittleEndian)
             {
                 return reader.ReadSingle();
             }

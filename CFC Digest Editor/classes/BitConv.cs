@@ -1,4 +1,4 @@
-﻿namespace CFC_Digest_Editor.Classes
+﻿namespace CFC_Digest_Editor
 {
     public static class BitConv
     {

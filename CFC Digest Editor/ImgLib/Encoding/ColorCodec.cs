@@ -20,7 +20,6 @@ using System.Drawing;
 using Rainbow.ImgLib.Encoding.Implementation;
 using Rainbow.ImgLib.Common;
 using Rainbow.ImgLib.Filters;
-using CFC_Digest_Editor.Classes;
 
 // TODO: Fix interface of ColorCodec, supporting matrices/width x height inputs.
 namespace Rainbow.ImgLib.Encoding
@@ -37,17 +36,17 @@ namespace Rainbow.ImgLib.Encoding
         public static readonly ColorCodec CODEC_32BIT_BGRA = new ColorCodec32BitBGRA();
         public static readonly ColorCodec CODEC_32BIT_ARGB = new ColorCodec32BitARGB();
         public static readonly ColorCodec CODEC_16BITLE_ABGR = new ColorCodec16BitLEABGR();
-        public static readonly ColorCodec CODEC_16BITLE_RGB5A3 = new ColorCodecRGB5A3(Endianess.LittleEndian);
-        public static readonly ColorCodec CODEC_16BITBE_RGB5A3 = new ColorCodecRGB5A3(Endianess.BigEndian);
-        public static readonly ColorCodec CODEC_16BITLE_RGB565 = new ColorCodecRGB565(Endianess.LittleEndian);
-        public static readonly ColorCodec CODEC_16BITBE_RGB565 = new ColorCodecRGB565(Endianess.BigEndian);
-        public static readonly ColorCodec CODEC_16BITLE_IA8 = new ColorCodecIA8(Endianess.LittleEndian);
-        public static readonly ColorCodec CODEC_16BITBE_IA8 = new ColorCodecIA8(Endianess.BigEndian);
-        public static readonly ColorCodec CODEC_8BITLE_IA4 = new ColorCodecIA4(Endianess.LittleEndian);
-        public static readonly ColorCodec CODEC_8BITBE_IA4 = new ColorCodecIA4(Endianess.BigEndian);
+        public static readonly ColorCodec CODEC_16BITLE_RGB5A3 = new ColorCodecRGB5A3(ByteOrder.LittleEndian);
+        public static readonly ColorCodec CODEC_16BITBE_RGB5A3 = new ColorCodecRGB5A3(ByteOrder.BigEndian);
+        public static readonly ColorCodec CODEC_16BITLE_RGB565 = new ColorCodecRGB565(ByteOrder.LittleEndian);
+        public static readonly ColorCodec CODEC_16BITBE_RGB565 = new ColorCodecRGB565(ByteOrder.BigEndian);
+        public static readonly ColorCodec CODEC_16BITLE_IA8 = new ColorCodecIA8(ByteOrder.LittleEndian);
+        public static readonly ColorCodec CODEC_16BITBE_IA8 = new ColorCodecIA8(ByteOrder.BigEndian);
+        public static readonly ColorCodec CODEC_8BITLE_IA4 = new ColorCodecIA4(ByteOrder.LittleEndian);
+        public static readonly ColorCodec CODEC_8BITBE_IA4 = new ColorCodecIA4(ByteOrder.BigEndian);
         public static readonly ColorCodec CODEC_8BIT_I8 = new ColorCodecI8();
-        public static readonly ColorCodec CODEC_4BITLE_I4 = new ColorCodecI4(Endianess.LittleEndian);
-        public static readonly ColorCodec CODEC_4BITBE_I4 = new ColorCodecI4(Endianess.BigEndian);
+        public static readonly ColorCodec CODEC_4BITLE_I4 = new ColorCodecI4(ByteOrder.LittleEndian);
+        public static readonly ColorCodec CODEC_4BITBE_I4 = new ColorCodecI4(ByteOrder.BigEndian);
 
 
         /// <summary>

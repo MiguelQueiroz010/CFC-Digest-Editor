@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -79,24 +79,31 @@
     <Compile Include="About.designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Racjin\Assets\Formats.cs" />
-    <Compile Include="Racjin\Assets\Text\EncFile.cs" />
-    <Compile Include="Racjin\Assets\Text\Encodings.cs" />
-    <Compile Include="Classes\BinaryUtils.cs" />
-    <Compile Include="Racjin\CFCUtils\Compression.cs" />
-    <Compile Include="Racjin\CFCUtils\CFC.cs" />
-    <Compile Include="Racjin\CFCUtils\ArchiveFormat.cs" />
-    <Compile Include="Classes\ADPCM.cs" />
-    <Compile Include="Classes\BitConv.cs" />
-    <Compile Include="Racjin\Assets\DSI.cs" />
-    <Compile Include="Classes\EncFile.cs" />
-    <Compile Include="Classes\Encodings.cs" />
-    <Compile Include="Racjin\Assets\IMG.cs" />
-    <Compile Include="Racjin\Assets\Text\MB0.cs" />
-    <Compile Include="Racjin\Assets\PAP.cs" />
-    <Compile Include="Classes\TM2.cs" />
+    <Compile Include="ArquivoRAW\Bin.cs" />
+    <Compile Include="ArquivoRAW\EncFile.cs" />
+    <Compile Include="ArquivoRAW\Encodings.cs" />
+    <Compile Include="ArquivoRAW\RAW.cs" />
+    <Compile Include="ArquivoRAW\TM2.cs" />
+    <Compile Include="cfcdigutils\Compression.cs" />
+    <Compile Include="cfcdigutils\DIG.cs" />
+    <Compile Include="cfcdigutils\FAT.cs" />
+    <Compile Include="cfcdigutils\Package.cs" />
+    <Compile Include="cfcdigutils\Records.cs" />
+    <Compile Include="classes\ADPCM.cs" />
+    <Compile Include="classes\BinaryUtils.cs" />
+    <Compile Include="classes\BitConv.cs" />
+    <Compile Include="classes\DSI.cs" />
+    <Compile Include="classes\EncFile.cs" />
+    <Compile Include="classes\Encodings.cs" />
+    <Compile Include="classes\IMG.cs" />
+    <Compile Include="classes\IOextent.cs" />
+    <Compile Include="classes\MB0.cs" />
+    <Compile Include="classes\PAP.cs" />
+    <Compile Include="classes\PopulateNodes.cs" />
+    <Compile Include="classes\StringTerminator.cs" />
+    <Compile Include="classes\TM2.cs" />
     <Compile Include="ImgLib\Common\BinaryReaderExtensions.cs" />
-    <Compile Include="Classes\Endianness.cs" />
+    <Compile Include="ImgLib\Common\Endianness.cs" />
     <Compile Include="ImgLib\Common\GenericDictionary.cs" />
     <Compile Include="ImgLib\Common\ImageExtensions.cs" />
     <Compile Include="ImgLib\Common\ImageUtils.cs" />
@@ -182,11 +189,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PAP_Viewer.resx">
       <DependentUpon>PAP_Viewer.cs</DependentUpon>
@@ -232,10 +237,8 @@
   <ItemGroup>
     <Content Include="ChatGPT-Image-29-de-mar.-de-2025_-18_54_39.ico" />
     <Content Include="icon.ico" />
-    <None Include="Resources\packet.png" />
-    <None Include="Resources\file.png" />
     <None Include="Resources\folder.png" />
+    <None Include="Resources\file.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
