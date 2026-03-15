@@ -6,15 +6,14 @@ Editor de arquivos `DIG` utilizado em jogos da empresa Racjin.
 
 ## ✨ Funcionalidades
 
-- Leitura e extração de arquivos e pastas
-- Edição de textos com suporte a codificação personalizada
-- Edição de texturas e PAP(recorte de textura 2D)
-- Ferramenta especial extratora e compiladora de vídeo/áudio `DSI`
+- Leitura de arquivos e pastas 
+- Edição de texturas e PAP(recorte de textura)
+-Edição de textos e suporta a codificação personalizada
+-Ferramenta especial extratora e compiladora de vídeo/áudio `DSI`
 
 ### Créditos
-- [Servidor de Discord Naruto Classics](https://discord.com/invite/Y2rFRJq), que foi onde este projeto começou, envolvidos (Naruto Classics, William Vaz, Bit.Raiden e Theus).<br>
-- [Raw-man](https://github.com/Raw-man) e sua ferramenta [Racjin-(de)compression](https://github.com/Raw-man/Racjin-de-compression) com o algorítmo de compressão de assets em C++.
-- [SockNastre](https://github.com/SockNastre) e sua ferramenta [CFCDIGCLi](https://github.com/SockNastre/CFCDIGCli) com o código base de manipulação de pacotes e sua conversão do código da compressão em C++ para C#.
+A ferramenta original da qual Decompilei, "Naruto Uzumaki Chronicles Editor" e estruturas do DIG/RAW pelo **THeus**, do servidor do discord **Naruto Classics:** https://discord.gg/gWtneMgE.
+**WilliamVaz**, a qual prometi cumprir tantas funcionalidades para seu projeto de tradução do jogo.
 
 Todos os direitos do jogo são para a **CyberConnect2** e **BandaiNamco** e **Racjin Co.**.
 
@@ -22,3 +21,4 @@ Todos os direitos do jogo são para a **CyberConnect2** e **BandaiNamco** e **Ra
 
 - .NET Framework 4.7.2 ou superior
 - Visual Studio 2019 ou superior (para compilação)
+ 

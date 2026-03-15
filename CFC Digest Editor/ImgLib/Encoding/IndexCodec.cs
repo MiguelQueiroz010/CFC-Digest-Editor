@@ -20,7 +20,6 @@ using System;
 using Rainbow.ImgLib.Encoding.Implementation;
 using Rainbow.ImgLib.Common;
 using Rainbow.ImgLib.Filters;
-using CFC_Digest_Editor.Classes;
 
 namespace Rainbow.ImgLib.Encoding
 {
@@ -36,12 +35,12 @@ namespace Rainbow.ImgLib.Encoding
 
         public abstract int BitDepth { get; }
 
-        public static IndexCodec FromBitPerPixel(int bpp, Endianess order = Endianess.LittleEndian)
+        public static IndexCodec FromBitPerPixel(int bpp, ByteOrder order = ByteOrder.LittleEndian)
         {
             return FromNumberOfColors(1 << bpp, order);
         }
 
-        public static IndexCodec FromNumberOfColors(int colors, Endianess order = Endianess.LittleEndian)
+        public static IndexCodec FromNumberOfColors(int colors, ByteOrder order = ByteOrder.LittleEndian)
         {
             if (colors <= 16)
             {

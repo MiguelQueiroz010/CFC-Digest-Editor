@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CFC_Digest_Editor.Classes
+namespace NUC_Raw_Tools.ArquivoRAW
 {
     internal class TM2
     {
@@ -86,7 +84,6 @@ namespace CFC_Digest_Editor.Classes
                     size /= 2;
                 tim2.TEX = reader.ReadBytes(size);
                 tim2.CLUT = reader.ReadBytes(tim2.Bpp == 4 ? 0x40 : 0x400);
-                
 
                 return tim2;
             }
